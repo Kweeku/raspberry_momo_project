@@ -1,0 +1,14 @@
+import sqlite3
+
+# Open database connection
+conn = sqlite3.connect('transactions.db')
+c = conn.cursor()
+
+# Insert some dummy data
+c.execute("INSERT INTO transactions (phone_number, amount) VALUES (?, ?)", ('0241888080', 10))
+c.execute("INSERT INTO transactions (phone_number, amount) VALUES (?, ?)", ('0543219876', 20))
+c.execute("INSERT INTO transactions (phone_number, amount) VALUES (?, ?)", ('0277462893', 15))
+
+# Commit changes and close connection
+conn.commit()
+conn.close()
